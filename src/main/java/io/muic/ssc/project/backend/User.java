@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table(name = "tbl_user")
+@Table(name = "user_table")
 public class User {
 
     @Id
@@ -18,6 +18,6 @@ public class User {
     private String password;
     private String role;
 
-    @Column(name= "u_group")
-    private String group;
+//    @Column(name= "u_group")
+//    private String group;
 }
