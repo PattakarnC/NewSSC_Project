@@ -18,6 +18,10 @@ public class OurUserDetailsService implements UserDetailsService{
     @Autowired
     private UserRepository userRepository;
 
+    public OurUserDetailsService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         io.muic.ssc.project.backend.User user = userRepository.findFirstByUsername(username);

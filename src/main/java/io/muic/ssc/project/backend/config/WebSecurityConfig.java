@@ -1,6 +1,7 @@
 package io.muic.ssc.project.backend.config;
 
 import io.muic.ssc.project.backend.SimpleResponseDTO;
+//import io.muic.ssc.project.backend.auth.OurUserDetailsService;
 import io.muic.ssc.project.backend.auth.OurUserDetailsService;
 import io.muic.ssc.project.backend.util.AjaxUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
@@ -80,6 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 	}
+
 //	@Override
 //	public UserDetailsService userDetailsService() {
 //		return ourUserDetailsService;
