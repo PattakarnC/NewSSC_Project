@@ -57,8 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //		return new InMemoryUserDetailsManager(user);
 //	}
 
-//	@Autowired
-//	private OurUserDetailsService ourUserDetailsService;
+	@Autowired
+	private OurUserDetailsService ourUserDetailsService;
 
 	@Bean
 	public PasswordEncoder passwordEncoder(){
@@ -81,10 +81,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 	}
 
-//	@Override
-//	public UserDetailsService userDetailsService() {
-//		return ourUserDetailsService;
-//	}
+	@Override
+	public UserDetailsService userDetailsService() {
+		return ourUserDetailsService;
+	}
 
 	class JsonHttp403ForbiddenEntryPoint implements AuthenticationEntryPoint {
 

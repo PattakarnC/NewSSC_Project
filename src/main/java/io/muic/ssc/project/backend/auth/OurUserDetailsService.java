@@ -13,14 +13,7 @@ import org.springframework.stereotype.Service;
 public class OurUserDetailsService implements UserDetailsService{
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
     private UserRepository userRepository;
-
-    public OurUserDetailsService(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -31,7 +24,7 @@ public class OurUserDetailsService implements UserDetailsService{
                     .roles(user.getRole())
                     .build();
         } else {
-            throw new UsernameNotFoundException("Invalid username pr password");
+            throw new UsernameNotFoundException("Invalid username pr password!!!!");
         }
     }
 }
